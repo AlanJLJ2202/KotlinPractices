@@ -13,13 +13,6 @@ fun main() {
     for (i in 1..n) {
         println("Ingresa el nombre del chofer($i):")
         val nombre: String = readLine()!!
-        /*for(j in 1 .. 6){
-
-            ++x
-        }*/
-
-
-
         val kilometros_conductor = mutableListOf<Double>()
 
         for(i in 1 .. 6){
@@ -37,23 +30,22 @@ fun main() {
             val km: Double = readLine()!!.toDouble()
             kilometros_conductor.add(km)
             x += 1
-            //print("x = $x")
         }
 
         var conductor  = Conductor(nombre, kilometros_conductor)
-
         conductores.add(conductor)
     }
 
-    println("conductores")
-    println(conductores)
+    println("------------------------------------------------------------------------")
+    println("Chofer |   Lun   |   Mar   |   Mie   |   Jue   |   Vie   |   Sab   |   Total")
+    println("------------------------------------------------------------------------")
 
     var maxMiles = 0
     var maxDriver = conductores[0]
 
     for (conductor in conductores) {
         val totalMiles = conductor.km.sum()
-        println("${conductor.nombre} - ${conductor.km.joinToString(" ")} - Total: $totalMiles")
+        println("${conductor.nombre}   |   ${conductor.km.joinToString("   |   ")}   | $totalMiles km")
 
         if (totalMiles > 0) {
             maxMiles = totalMiles.toInt()
@@ -61,15 +53,10 @@ fun main() {
         }
     }
 
-    println("\nChofer con el mayor recorrido: ${maxDriver.nombre} ($maxMiles km)")
+    println("------------------------------------------------------------------------")
+    println("\nChofer con el mayor recorrido: ${maxDriver.nombre} ($maxMiles km)                              |")
+    println("------------------------------------------------------------------------")
 
-
-    /*for (driver in drivers) {
-        val totalMiles = driver.km.sum()
-        println("${driver.nombre} - ${driver.km.joinToString(" ")} - Total: $totalMiles")
-    }*/
-
-    //println("Ingresa el nombre de choferes que trabajan en la empresa:")
 
 }
 
