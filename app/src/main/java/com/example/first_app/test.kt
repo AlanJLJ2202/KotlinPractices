@@ -4,7 +4,7 @@ const val birthday = "22 de febrero"
 
 
 
-fun main() {
+fun testt() {
     
         /* //Se pide al usuario que ingrese los datos de la figura
         println("Ingresa el lado (a) de la figura:")

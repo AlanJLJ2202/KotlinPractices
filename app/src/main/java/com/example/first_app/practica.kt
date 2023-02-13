@@ -1,6 +1,6 @@
 package com.example.first_app
 
-fun main() {
+fun test() {
 
     println("Ingresa el numero de choferes que trabajan en la empresa:")
     val n: Int = readLine()!!.toInt()
@@ -38,7 +38,7 @@ fun main() {
     }
 
     println("------------------------------------------------------------------------")
-    println("Chofer |   Lun   |   Mar   |   Mie   |   Jue   |   Vie   |   Sab   |   Total")
+    println("Chofer\t\t\tLun\t\tMar\t\tMie\t\tJue\t\tVie\t\tSab\t\tTotal")
     println("------------------------------------------------------------------------")
 
     var maxKm = 0
@@ -46,7 +46,7 @@ fun main() {
 
     for (conductor in conductores) {
         val totalKm = conductor.km.sum()
-        println("${conductor.nombre}   |   ${conductor.km.joinToString("   |   ")}   | $totalKm km")
+        println("${conductor.nombre}\t\t\t\t${conductor.km.joinToString("\t\t")}\t\t$totalKm km")
 
         if (totalKm > 0 && totalKm.toInt() > maxKm) {
             maxKm = totalKm.toInt()
