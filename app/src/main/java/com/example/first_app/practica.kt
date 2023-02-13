@@ -11,6 +11,7 @@ fun main() {
     var dia = ""
 
     for (i in 1..n) {
+
         println("Ingresa el nombre del chofer($i):")
         val nombre: String = readLine()!!
         val kilometros_conductor = mutableListOf<Double>()
@@ -40,24 +41,22 @@ fun main() {
     println("Chofer |   Lun   |   Mar   |   Mie   |   Jue   |   Vie   |   Sab   |   Total")
     println("------------------------------------------------------------------------")
 
-    var maxMiles = 0
-    var maxDriver = conductores[0]
+    var maxKm = 0
+    var maxConductor = conductores[0]
 
     for (conductor in conductores) {
-        val totalMiles = conductor.km.sum()
-        println("${conductor.nombre}   |   ${conductor.km.joinToString("   |   ")}   | $totalMiles km")
+        val totalKm = conductor.km.sum()
+        println("${conductor.nombre}   |   ${conductor.km.joinToString("   |   ")}   | $totalKm km")
 
-        if (totalMiles > 0) {
-            maxMiles = totalMiles.toInt()
-            maxDriver = conductor
+        if (totalKm > 0 && totalKm.toInt() > maxKm) {
+            maxKm = totalKm.toInt()
+            maxConductor = conductor
         }
     }
 
     println("------------------------------------------------------------------------")
-    println("\nChofer con el mayor recorrido: ${maxDriver.nombre} ($maxMiles km)                              |")
+    println("\nChofer con el mayor recorrido: ${maxConductor.nombre} ($maxKm km)                              |")
     println("------------------------------------------------------------------------")
-
-
 }
 
 data class Conductor(val nombre: String, val km: MutableList<Double>)
