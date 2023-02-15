@@ -6,27 +6,30 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 
-class MainActivity : AppCompatActivity() {
-
-    private var mensaje: String? = ""
+class SecondActivity : AppCompatActivity() {
+    
+    private var nombre: String? = ""
+    
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_second)
 
         val texto = findViewById<TextView>(R.id.txt_output)
         val boton = findViewById<Button>(R.id.btn_click)
-        intent.extras?.let { bundle ->  mensaje = bundle.getString("mensaje") }
-        texto.text = mensaje
-
+        //intent.getBundleExtra(intent.extras?)
+        intent.extras?.let { bundle ->  nombre = bundle.getString("nombre") }
+        texto.text = nombre
+        
         boton.setOnClickListener {
-            navegarSegundaActivity()
+            returnToMain()
         }
     }
+    
+    
 
-    fun navegarSegundaActivity(){
-        val intent = Intent(this, SecondActivity::class.java)
-        intent.putExtra("nombre", "Alan")
+    fun returnToMain(){
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("mensaje", "Estas regresando al primer activity")
         startActivity(intent)
     }
 }
