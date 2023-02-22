@@ -4,25 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".SegundoFragment">
+    tools:context=".TercerFragment">
 
+    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/txt_output"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Second fragmento"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:textSize="20sp" />
+        android:layout_height="match_parent"
+        android:text="Tercer fragment"
+        android:gravity="center" />
 
     <Button
         android:id="@+id/btn_enviar_datos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ir a la tercer pantalla"
+        android:text="Ir a la primer pantalla"
         android:layout_gravity="bottom"
-        android:gravity="center"
         android:textSize="20sp" />
 
 </FrameLayout>
