@@ -5,7 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
+import androidx.navigation.fragment.findNavController
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -22,12 +27,14 @@ class TercerFragment : Fragment() {
         }
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setFragmentResultListener("requestKey") { requestKey, bundle ->
-            val result = bundle.getString("bundleKey")
-            //resultado.text = result
+
+        val button = view.findViewById<Button>(R.id.btn_enviar_datos)
+        button.setOnClickListener {
+            val result = "Hola desde el tercer fragment"
+            setFragmentResult("requestKey", bundleOf("bundleKey" to result))
+            findNavController().navigate(R.id.action_tercerFragment_to_primerFragment)
         }
     }
 
